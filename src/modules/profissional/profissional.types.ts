@@ -1,4 +1,7 @@
+import mongoose from "mongoose"
+
 export interface IProfissional {
+    _id: mongoose.Types.ObjectId
     name: string
     especialidade: string
     disponibilidade_inicio: Date

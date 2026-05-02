@@ -6,7 +6,13 @@ const servicoSchema = new Schema<IServico>(
     {
         name: {
             type: String,
-            required: false,
+            required: true,
+            trim: true
+        },
+        tipo: {
+            type: String,
+            required: true,
+            enum: ['banho', 'tosa', 'ambos'],
             trim: true
         },
         duracao_min: {

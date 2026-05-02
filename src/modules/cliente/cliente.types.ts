@@ -1,4 +1,7 @@
+import mongoose from "mongoose"
+
 export interface ICliente {
+    _id: mongoose.Types.ObjectId
     name: string
     email: string
     telefone: string

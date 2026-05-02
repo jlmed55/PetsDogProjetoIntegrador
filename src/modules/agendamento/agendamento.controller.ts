@@ -4,11 +4,16 @@ import agendamentoService from "./agendamento.service.js"
 class AgendamentoController {
 
     async create(req: Request, res: Response): Promise<Response> {
-        const { data_hora, status } = req.body ?? {}
+        const { data_hora, status, observacoes, clienteId, animalId, profissionalId, servicoId } = req.body ?? {}
 
         const agendamento = await agendamentoService.create({
             data_hora,
-            status
+            status,
+            observacoes,
+            clienteId,
+            animalId,
+            profissionalId,
+            servicoId
         })
 
         return res.status(201).json(agendamento)
@@ -39,11 +44,16 @@ class AgendamentoController {
             return res.status(400).json({ message: "ID inválido" })
         }
 
-        const { data_hora, status } = req.body ?? {}
+        const { data_hora, status, observacoes, clienteId, animalId, profissionalId, servicoId } = req.body ?? {}
 
         const agendamento = await agendamentoService.update(idParam, {
             data_hora,
-            status
+            status,
+            observacoes,
+            clienteId,
+            animalId,
+            profissionalId,
+            servicoId
         })
 
         return res.status(200).json(agendamento)
