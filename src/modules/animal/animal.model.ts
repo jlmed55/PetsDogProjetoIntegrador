@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose"
+import mongoose, { Schema, Types } from "mongoose"
 import type { IAnimal } from "./animal.types.js"
 
 const animalSchema = new Schema<IAnimal>(
@@ -25,6 +25,21 @@ const animalSchema = new Schema<IAnimal>(
             type: String,
             required: true,
             trim: true,
+        },
+        observacoes_saude: {
+            type: String,
+            required: false,
+            trim: true,
+        },
+        preferencias_especificas: {
+            type: String,
+            required: false,
+            trim: true,
+        },
+        cliente: {
+            type: Types.ObjectId,
+            ref: 'Cliente',
+            required: true,
         },
     },
     { timestamps: true }
