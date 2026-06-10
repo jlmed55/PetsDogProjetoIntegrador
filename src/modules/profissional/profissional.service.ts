@@ -9,8 +9,8 @@ class ProfissionalService {
             return await Profissional.create({
                 name: data.name,
                 especialidade: data.especialidade,
-                disponibilidade_inicio: new Date(data.disponibilidade_inicio),
-                disponibilidade_fim: new Date(data.disponibilidade_fim)
+                disponibilidade_inicio: data.disponibilidade_inicio,
+                disponibilidade_fim: data.disponibilidade_fim
             })
 
         } catch (e) {

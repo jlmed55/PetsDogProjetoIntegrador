@@ -6,7 +6,12 @@ class profissionalController {
     async create(req: Request, res: Response): Promise<Response> {
         const { name, especialidade, disponibilidade_inicio, disponibilidade_fim } = req.body ?? {}
 
-        const profissional = await profissionalService.create({ name, especialidade, disponibilidade_inicio, disponibilidade_fim })
+        const profissional = await profissionalService.create({ 
+            name: name,
+            especialidade: especialidade, 
+            disponibilidade_inicio: disponibilidade_inicio, 
+            disponibilidade_fim: disponibilidade_fim 
+        })
 
         return res.status(201).json(profissional)
     }
@@ -18,6 +23,7 @@ class profissionalController {
     }
 
     async getById(req: Request, res: Response) {
+
         const id = req.params.id ?? ""
 
         const profissional = await profissionalService.getById(id)

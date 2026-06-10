@@ -6,7 +6,12 @@ class ClienteController {
     async create(req: Request, res: Response): Promise<Response> {
         const { name, email, telefone, senha } = req.body ?? {}
 
-        const cliente = await clienteService.create({ name, email, telefone, senha })
+        const cliente = await clienteService.create({ 
+            name: name, 
+            email: email,
+            telefone: telefone, 
+            senha:senha 
+        })
 
         return res.status(201).json(cliente)
     }

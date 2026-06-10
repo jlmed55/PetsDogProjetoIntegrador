@@ -6,11 +6,17 @@ class ClienteService {
     async create(data: ICreateClienteDTO) {
         try {
 
-            return await Cliente.create({
+            await Cliente.create({
                 name: data.name,
                 email: data.email,
                 telefone: data.telefone,
                 senha: data.senha
+            })
+
+            return ({
+                name: data.name,
+                email: data.email,
+                telefone: data.telefone
             })
 
         } catch (e) {
@@ -21,7 +27,19 @@ class ClienteService {
     async getAll() {
         try {
             
-            return await Cliente.find()
+            const clientes = await Cliente.find();
+
+            const resposta: { name: string }[] = [];
+
+            clientes.forEach((cliente) => {
+                resposta.push({
+                name: cliente.name,
+                email: cliente.email,
+                telefone: cliente.telefone
+                });
+            });
+
+            return resposta
 
         } catch (e) {
             console.log(e)
