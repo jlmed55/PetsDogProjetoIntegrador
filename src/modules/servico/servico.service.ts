@@ -28,7 +28,8 @@ class ServicoService {
     const servico = await Servico.create({
       name: data.name,
       duracao_min: data.duracao_min,
-      preco: data.preco
+      preco: data.preco,
+      tipo: data.tipo
     });
     return servico;
   }

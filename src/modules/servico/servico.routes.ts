@@ -1,5 +1,4 @@
 import { Router } from "express";
-import categoryController from "./servico.controller.js"
 import servicoController from "./servico.controller.js";
 
 const servicoRoutes = Router ();
