@@ -5,6 +5,7 @@ import clienteRoutes from "./modules/cliente/cliente.routes.js";
 import servicoRoutes from "./modules/servico/servico.routes.js";
 import profissionalRoutes from "./modules/profissional/profissional.routes.js";
 import relatorioRoutes from "./modules/relatorio/relatorio.routes.js";
+import authRoutes from "./modules/auth/auth.routes.js";
 
 const routes = Router();
 
@@ -20,5 +21,6 @@ routes.use("/clientes", clienteRoutes)
 routes.use("/servicos", servicoRoutes)
 routes.use("/profissionais", profissionalRoutes)
 routes.use("/relatorios", relatorioRoutes)
+routes.use("/auth", authRoutes)
 
 export default routes;
