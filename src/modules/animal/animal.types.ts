@@ -2,7 +2,6 @@ import mongoose from "mongoose"
 
 export interface IAnimal {
     _id: mongoose.Types.ObjectId
-    id_animal: number
     nome: string
     especie: string
     idade: number
@@ -15,7 +14,6 @@ export interface IAnimal {
 }
 
 export interface ICreateAnimalDTO {
-    id_animal: number
     nome: string
     especie: string
     idade: number
@@ -26,7 +24,6 @@ export interface ICreateAnimalDTO {
 }
 
 export interface IUpdateAnimalDTO {
-    id_animal?: number
     nome?: string
     especie?: string
     idade?: number

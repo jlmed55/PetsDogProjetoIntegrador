@@ -4,10 +4,9 @@ import animalService from "./animal.service.js"
 class AnimalController {
 
     async create(req: Request, res: Response): Promise<Response> {
-        const { id_animal, nome, especie, idade, porte, observacoes_saude, preferencias_especificas, clienteId } = req.body ?? {}
+        const { nome, especie, idade, porte, observacoes_saude, preferencias_especificas, clienteId } = req.body ?? {}
 
         const animal = await animalService.create({
-            id_animal,
             nome,
             especie,
             idade,
@@ -37,10 +36,9 @@ class AnimalController {
     async update(req: Request<{ id: string }>, res: Response): Promise<Response> {
         const id = req.params.id
 
-        const { id_animal, nome, especie, idade, porte, observacoes_saude, preferencias_especificas, clienteId } = req.body ?? {}
+        const { nome, especie, idade, porte, observacoes_saude, preferencias_especificas, clienteId } = req.body ?? {}
 
         const animal = await animalService.update(id, {
-            id_animal,
             nome,
             especie,
             idade,

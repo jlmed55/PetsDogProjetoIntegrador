@@ -52,10 +52,6 @@ class CategoryController {
 
     public async update( request:Request, response: Response):Promise<Response>{
        const {id} = request.params;
-       const {name, description, active} = request.body;
-       const teste = request.query.teste ?? "Não foi enviado";
-
-       console.log("valor  de teste", teste);
 
        if(!id || typeof id !== "string"){
         return response.status(400).json({
@@ -65,11 +61,12 @@ class CategoryController {
        const category = await servicoService.update(id, {
         name: request.body.name,
         duracao_min: request.body.duracao_min,
-        preco: request.body.preco
+        preco: request.body.preco,
+        tipo: request.body.tipo
        });
 
        return response.status(200).json(category);
-   
+
     }
 
 }

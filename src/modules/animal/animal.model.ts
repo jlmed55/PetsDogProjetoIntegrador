@@ -3,10 +3,6 @@ import type { IAnimal } from "./animal.types.js"
 
 const animalSchema = new Schema<IAnimal>(
     {
-        id_animal: {
-            type: Number,
-            required: true,
-        },
         nome: {
             type: String,
             required: true,
