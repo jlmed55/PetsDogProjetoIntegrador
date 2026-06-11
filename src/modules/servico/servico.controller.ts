@@ -32,7 +32,7 @@ class CategoryController {
 
         await servicoService.delete(id);
         return response.status(200).json({
-            message:"cadastrado com sucesso!",
+            message:"removido com sucesso!",
         });
     }
 
@@ -57,7 +57,7 @@ class CategoryController {
 
        console.log("valor  de teste", teste);
 
-       if(id || typeof id !== "string"){
+       if(!id || typeof id !== "string"){
         return response.status(400).json({
            message: "Id invalido"
         });

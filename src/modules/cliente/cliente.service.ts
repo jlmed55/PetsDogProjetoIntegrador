@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Cliente from './cliente.model.js';
 import type { ICreateClienteDTO, IUpdateClienteDTO } from './cliente.types.js';
 
@@ -6,7 +7,7 @@ class ClienteService {
     async create(data: ICreateClienteDTO) {
         try {
 
-            await Cliente.create({
+            const cliente = await Cliente.create({
                 name: data.name,
                 email: data.email,
                 telefone: data.telefone,
@@ -14,9 +15,10 @@ class ClienteService {
             })
 
             return ({
-                name: data.name,
-                email: data.email,
-                telefone: data.telefone
+                _id: cliente._id,
+                name: cliente.name,
+                email: cliente.email,
+                telefone: cliente.telefone
             })
 
         } catch (e) {
@@ -29,10 +31,11 @@ class ClienteService {
             
             const clientes = await Cliente.find();
 
-            const resposta: { name: string }[] = [];
+            const resposta: { _id: mongoose.Types.ObjectId; name: string; email: string; telefone: string }[] = [];
 
             clientes.forEach((cliente) => {
                 resposta.push({
+                _id: cliente._id,
                 name: cliente.name,
                 email: cliente.email,
                 telefone: cliente.telefone
